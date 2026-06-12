@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express=require("express");
 const mongoose=require("mongoose");
 const cors=require("cors");
@@ -24,11 +25,7 @@ app.use(
 express.static("uploads")
 );
 
-mongoose.connect(
-
-"mongodb://sindhusindhujap9_db_user:q2Mgs8O0PuvpSDWu@ac-lzvwikv-shard-00-00.loyw2bn.mongodb.net:27017,ac-lzvwikv-shard-00-01.loyw2bn.mongodb.net:27017,ac-lzvwikv-shard-00-02.loyw2bn.mongodb.net:27017/?ssl=true&replicaSet=atlas-m53b27-shard-0&authSource=admin&appName=Cluster0"
-
-)
+mongoose.connect(process.env.MONGO_URI)
 
 .then(()=>{
 
